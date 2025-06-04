@@ -4,7 +4,8 @@ This project was created as a Zustand study. It provides a simple example of
 implementing state management logic using Zustand and demonstrates the usage of
 the Immer library.
 
-This page preview is available on [GitHub Pages]()
+This page preview is available on
+[GitHub Pages](https://roman-lakhnov.github.io/zustand-fruit-shop/)
 
 ## Overview
 
