@@ -1,5 +1,7 @@
-import { type Product } from './products'
-import useCartStore from './store/CartStore'
+import { type Product } from '../products'
+import useCartStore from '../store/CartStore'
+import { useState } from 'react'
+import SuccessModal from './SuccessModal'
 
 const Cart = () => {
 	const cart = useCartStore(state => state.cart)
@@ -10,6 +12,7 @@ const Cart = () => {
 	const clearCart = useCartStore(state => state.clearCart)
 	// here is example of using selectors
 	// const clearCart = useCartSelectors.use.clearCart()
+	const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false)
 
 	const groupedItems = cart.reduce<
 		Record<number, { product: Product; quantity: number }>
@@ -21,8 +24,22 @@ const Cart = () => {
 		return acc
 	}, {})
 
-	// Расчет общей суммы
 	const totalAmount = cart.reduce((sum, item) => sum + item.price, 0)
+
+	function handleCheckout() {
+		if (cart.length === 0) {
+			alert(
+				'Your cart is empty. Please add items to your cart before checking out.'
+			)
+			return
+		}
+		setIsSuccessModalOpen(true)
+	}
+
+	function handleCloseSuccessModal() {
+		setIsSuccessModalOpen(false)
+		clearCart()
+	}
 
 	return (
 		<div>
@@ -143,6 +160,7 @@ const Cart = () => {
 							Clear Cart
 						</button>
 						<button
+							onClick={() => handleCheckout()}
 							style={{
 								marginLeft: '10px',
 								padding: '10px 20px',
@@ -157,6 +175,11 @@ const Cart = () => {
 					</div>
 				</>
 			)}
+			<SuccessModal
+				isOpen={isSuccessModalOpen}
+				onClose={handleCloseSuccessModal}
+				totalAmount={totalAmount}
+			/>
 		</div>
 	)
 }

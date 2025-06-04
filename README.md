@@ -24,8 +24,10 @@ The main components include:
 - `/src/store/CartStore.ts` - Zustand store for managing the shopping cart
 - `/src/store/UserStore.ts` - Example store using Immer for immutable updates
 - `/src/store/createSelectors.ts` - Utility for creating store selectors
-- `/src/Cart.tsx` - Shopping cart component
-- `/src/ProductLits.tsx` - Product listing component
+- `/src/components/Cart.tsx` - Shopping cart component
+- `/src/components/ProductLits.tsx` - Product listing component
+- `/src/components/Modal.tsx` - Reusable modal component
+- `/src/components/SuccessModal.tsx` - Success confirmation modal component
 - `/src/products.ts` - Product data
 
 ## Getting Started

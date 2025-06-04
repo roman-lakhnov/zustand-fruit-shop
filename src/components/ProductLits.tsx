@@ -1,5 +1,5 @@
-import { products } from './products'
-import useCartStore from './store/CartStore'
+import { products } from '../products'
+import useCartStore from '../store/CartStore'
 
 const ProductLits = () => {
 	const addToCart = useCartStore(state => state.addToCart)

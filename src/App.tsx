@@ -1,6 +1,6 @@
 import './App.css'
-import Cart from './Cart'
-import ProductLits from './ProductLits'
+import Cart from './components/Cart'
+import ProductLits from './components/ProductLits'
 
 function App() {
 	return (
